@@ -1,107 +1,35 @@
 "use client";
 
-import { Instagram, Youtube, Mail, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/5 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-1 mb-3">
-              <span className="text-xl font-black tracking-wider text-white">
-                RUDRA
-              </span>
-              <span className="text-xl font-black text-red-500">.</span>
-            </div>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              Transforming bodies and minds through iron discipline. Based in
-              Chandigarh, coaching worldwide.
-            </p>
-            <div className="flex items-center gap-4 mt-4">
-              <a
-                href="https://www.instagram.com/rudra.lifts.iron"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-red-500/20 transition-colors"
-              >
-                <Instagram size={16} className="text-gray-400" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-red-500/20 transition-colors"
-              >
-                <Youtube size={16} className="text-gray-400" />
-              </a>
-              <a
-                href="mailto:contact@rudralifts.com"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-red-500/20 transition-colors"
-              >
-                <Mail size={16} className="text-gray-400" />
-              </a>
-            </div>
-          </div>
+    <footer className="border-t border-slate-800/60 bg-[#080c18] py-10">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 space-y-6">
+        {/* Row 1: Brand + Quick links + Socials */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <span className="text-xl font-[800] tracking-tight text-slate-200">
+            RUDRA<span className="text-[#38bdf8]">.</span>
+          </span>
 
-          {/* Quick links */}
-          <div>
-            <h4 className="text-white font-bold text-sm mb-4 tracking-wider uppercase">
-              Quick Links
-            </h4>
-            <ul className="space-y-2">
-              {[
-                { name: "About", href: "#about" },
-                { name: "Services", href: "#services" },
-                { name: "Programs", href: "#programs" },
-                { name: "Transformations", href: "#transformations" },
-                { name: "Contact", href: "#contact" },
-              ].map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-500 text-sm hover:text-red-400 transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <nav aria-label="Quick links" className="flex items-center gap-6">
+            <a href="#services" className="text-xs text-slate-400 hover:text-slate-200 transition-colors">Services</a>
+            <a href="#results" className="text-xs text-slate-400 hover:text-slate-200 transition-colors">Results</a>
+            <a href="#contact" className="text-xs text-slate-400 hover:text-slate-200 transition-colors">Contact</a>
+          </nav>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-bold text-sm mb-4 tracking-wider uppercase">
-              Services
-            </h4>
-            <ul className="space-y-2">
-              {[
-                "Custom Diet Charts",
-                "Personal Training",
-                "1-on-1 Coaching",
-                "Group Challenges",
-                "Competition Prep",
-              ].map((s) => (
-                <li key={s}>
-                  <a
-                    href="#services"
-                    className="text-gray-500 text-sm hover:text-red-400 transition-colors"
-                  >
-                    {s}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <nav aria-label="Social links" className="flex items-center gap-6">
+            <a href="https://www.instagram.com/rudra.lifts.iron" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Instagram</a>
+            <a href="#" aria-label="YouTube" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">YouTube</a>
+            <a href="mailto:contact@rudralifts.com" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Email</a>
+          </nav>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/5 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-600 text-xs">
-            &copy; {new Date().getFullYear()} Rudra Lifts Iron. All rights
-            reserved.
-          </p>
-          <p className="text-gray-700 text-xs flex items-center gap-1">
-            Built with <Heart size={10} className="text-red-500" /> and Iron
+        {/* Row 2: Copyright */}
+        <div className="border-t border-slate-800/40 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+          <span className="text-xs text-slate-600">&copy; {new Date().getFullYear()} Rudra Fitness. All rights reserved.</span>
+          <p className="text-xs text-slate-600 flex items-center gap-1">
+            Built with <Heart size={10} className="text-[#f472b6]" /> and iron
           </p>
         </div>
       </div>
