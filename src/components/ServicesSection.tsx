@@ -29,49 +29,50 @@ const plans = [
 
 export default function ServicesSection() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="services" className="py-20 md:py-32" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="section-alt py-24 md:py-32" ref={ref}>
+      <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <motion.div
-          className="text-center mb-14"
-          initial={{ opacity: 0, y: 24 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
+          <p className="text-sm tracking-[0.2em] uppercase text-slate-500 mb-4">Pricing</p>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-100">
             Choose your plan
           </h2>
-          <p className="text-slate-400 mt-3 max-w-md mx-auto text-sm">
+          <p className="text-slate-400 mt-4 max-w-md mx-auto text-sm leading-relaxed">
             Flexible options for every goal. Cancel or switch anytime.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {plans.map((p, i) => (
             <motion.div
               key={p.name}
-              className={`card p-8 flex flex-col h-full relative ${p.recommended ? "border border-[#38bdf8]/30" : ""}`}
-              initial={{ opacity: 0, y: 28 }}
+              className={`card p-8 flex flex-col h-full relative ${p.recommended ? "border-[#38bdf8]/30 ring-1 ring-[#38bdf8]/10" : ""}`}
+              initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 + i * 0.12 }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
             >
               {p.recommended && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#38bdf8] text-[#080c18] text-xs font-bold px-3 py-1 rounded-full">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#38bdf8] text-[#080c18] text-xs font-bold px-4 py-1 rounded-full">
                   Most popular
                 </span>
               )}
               <h3 className="text-xl font-bold text-slate-100">{p.name}</h3>
-              <p className="mt-4">
-                <span className="text-3xl font-extrabold text-[#38bdf8]">{p.price}</span>
-                <span className="text-sm text-slate-500">/mo</span>
+              <p className="mt-5">
+                <span className="text-4xl font-extrabold text-[#38bdf8]">{p.price}</span>
+                <span className="text-sm text-slate-500 ml-1">/mo</span>
               </p>
-              <p className="text-sm text-slate-400 mt-2">{p.tagline}</p>
+              <p className="text-sm text-slate-400 mt-3">{p.tagline}</p>
 
-              <ul className="mt-6 space-y-3 flex-1">
+              <ul className="mt-8 space-y-3.5 flex-1">
                 {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-slate-300">
+                  <li key={f} className="flex items-start gap-3 text-sm text-slate-300">
                     <svg className="w-4 h-4 mt-0.5 text-[#38bdf8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
@@ -82,7 +83,7 @@ export default function ServicesSection() {
 
               <a
                 href="#contact"
-                className={`mt-8 block text-center py-3 text-sm ${p.recommended ? "btn-primary" : "btn-ghost"}`}
+                className={`mt-10 block text-center py-3.5 text-sm ${p.recommended ? "btn-primary" : "btn-ghost"}`}
               >
                 Get started
               </a>
@@ -91,10 +92,10 @@ export default function ServicesSection() {
         </div>
 
         <motion.p
-          className="text-center mt-10 text-sm text-slate-400"
+          className="text-center mt-12 text-sm text-slate-400"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
           Not sure which plan?{" "}
           <a href="#contact" className="text-[#38bdf8] hover:underline underline-offset-4">
